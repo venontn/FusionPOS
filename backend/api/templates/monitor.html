@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FusionPOS — Live Shop Monitor</title>
+  <style>
+    :root { --bg:#0f1419; --card:#1a2332; --text:#e8eef7; --muted:#9aa8bc; --ok:#4ade80; --off:#f87171; --accent:#2dd4bf; }
+    * { box-sizing: border-box; }
+    body { font-family:Segoe UI,system-ui,sans-serif; background:var(--bg); color:var(--text); margin:0; padding:1.5rem; }
+    h1 { margin:0 0 .25rem; }
+    .sub { color:var(--muted); margin-bottom:1.5rem; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:1rem; }
+    .shop { background:var(--card); border:1px solid #2f3f56; border-radius:12px; padding:1rem; }
+    .shop h2 { margin:0 0 .5rem; font-size:1.1rem; }
+    .pill { display:inline-block; padding:.2rem .6rem; border-radius:999px; font-size:.75rem; }
+    .pill.on { background:rgba(74,222,128,.15); color:var(--ok); }
+    .pill.off { background:rgba(248,113,113,.15); color:var(--off); }
+    .stat { display:flex; justify-content:space-between; margin:.35rem 0; font-size:.9rem; }
+    .sessions { margin-top:.75rem; }
+    .sessions li { font-size:.85rem; color:var(--muted); }
+    table { width:100%; border-collapse:collapse; font-size:.8rem; margin-top:.5rem; }
+    th,td { text-align:left; padding:.35rem; border-bottom:1px solid #2f3f56; }
+    .low { color:#fbbf24; }
+    footer { margin-top:2rem; color:var(--muted); font-size:.8rem; }
+  </style>
+</head>
+<body>
+  <h1>FusionPOS Live Monitor</h1>
+  <p class="sub">Administrators can view all registered shops from anywhere. Data refreshes every 5 seconds.</p>
+  <div id="shops" class="grid"><p class="sub">Loading shops…</p></div>
+  <footer>API: <span id="api-url"></span> · Last refresh: <span id="ts">—</span></footer>
+  <script>
+    const API = window.location.origin + '/api/shops/';
+    document.getElementById('api-url').textContent = API;
+
+    function money(n) {
+      return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(Number(n) || 0);
+    }
+
+    function render(shops) {
+      const el = document.getElementById('shops');
+      if (!shops.length) {
+        el.innerHTML = '<p class="sub">No shops connected yet. Start a desktop terminal with the API running and wait for heartbeat.</p>';
+        return;
+      }
+      el.innerHTML = shops.map(s => {
+        const snap = s.snapshot || {};
+        const stats = snap.stats || {};
+        const sessions = snap.active_sessions || [];
+        const sales = snap.recent_sales || [];
+        const low = snap.low_stock || [];
+        return `
+          <article class="shop">
+            <h2><span style="color:var(--accent);margin-right:.5rem">#${s.shop_id}</span>${s.shop_name}</h2>
+            <span class="pill ${s.is_online ? 'on' : 'off'}">${s.is_online ? 'Online' : 'Offline'}</span>
+            <small style="color:var(--muted);margin-left:.5rem">Terminal ${s.terminal_id || '—'}</small>
+            <div class="stat"><span>Today revenue</span><strong>${money(stats.today_revenue)}</strong></div>
+            <div class="stat"><span>Transactions</span><strong>${stats.today_transactions ?? 0}</strong></div>
+            <div class="stat"><span>Low stock</span><strong>${stats.low_stock_count ?? 0}</strong></div>
+            <div class="sessions">
+              <strong>Active users (${sessions.length})</strong>
+              <ul>${sessions.map(u => `<li>${u.display_name} (${u.role})</li>`).join('') || '<li>None</li>'}</ul>
+            </div>
+            ${sales.length ? `<table><thead><tr><th>Receipt</th><th>Total</th><th>Status</th></tr></thead><tbody>
+              ${sales.slice(0,5).map(r => `<tr><td>${r.receipt_no}</td><td>${money(r.total)}</td><td>${r.status}</td></tr>`).join('')}
+            </tbody></table>` : ''}
+            ${low.length ? `<p class="low" style="margin-top:.5rem;font-size:.8rem">Low stock: ${low.map(p => p.name).join(', ')}</p>` : ''}
+          </article>`;
+      }).join('');
+      document.getElementById('ts').textContent = new Date().toLocaleString();
+    }
+
+    async function refresh() {
+      try {
+        const res = await fetch(API);
+        render(await res.json());
+      } catch (e) {
+        document.getElementById('shops').innerHTML = '<p class="sub">Cannot reach API. Is Django running?</p>';
+      }
+    }
+    refresh();
+    setInterval(refresh, 5000);
+  </script>
+</body>
+</html>
