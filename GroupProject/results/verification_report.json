@@ -1,0 +1,66 @@
+{
+  "project": "Group Project \u2014 Smart Exam Invigilation / Cheating Behaviour Detection",
+  "course": "CS 414 / NWE 414 / SWE 414 \u2014 Artificial Intelligence and Intelligent Systems",
+  "datasets": [
+    "https://www.kaggle.com/datasets/fairouzfarouq/student-cheating-behavior-dataset",
+    "https://drive.google.com/drive/folders/1tcj53raozUaS2jx3-BpbKT5ITUB1G1F5",
+    "https://www.kaggle.com/datasets/ardutraagiginting/exam-cheating-dataset"
+  ],
+  "checkpoints": [
+    {
+      "file": "best.pt",
+      "ok": true,
+      "arch": "efficientnet_b0",
+      "author_field": "B226715A",
+      "input_size": 64,
+      "threshold": 0.37920366954021295,
+      "temperature": 0.5,
+      "export": "fold_ema_ensemble_n=2",
+      "class_names": [
+        "normal",
+        "cheating"
+      ],
+      "n_params": 4052175,
+      "sample_scores": [
+        0.5166,
+        0.4965,
+        0.4945,
+        0.4771,
+        0.5046,
+        0.5004,
+        0.4979,
+        0.5152
+      ],
+      "flags_at_threshold": 8,
+      "note": "Smoke/Colab checkpoint verified loadable. input_size=64 indicates a smoke or reduced run; full dataset training uses 224/288."
+    },
+    {
+      "file": "the_best.pt",
+      "ok": true,
+      "arch": "efficientnet_b0",
+      "author_field": "B226715A",
+      "input_size": 64,
+      "threshold": 0.37920366954021295,
+      "temperature": 0.5,
+      "export": "fold_ema_ensemble_n=2",
+      "class_names": [
+        "normal",
+        "cheating"
+      ],
+      "n_params": 4052175,
+      "sample_scores": [
+        0.5166,
+        0.4965,
+        0.4945,
+        0.4771,
+        0.5046,
+        0.5004,
+        0.4979,
+        0.5152
+      ],
+      "flags_at_threshold": 8,
+      "note": "Smoke/Colab checkpoint verified loadable. input_size=64 indicates a smoke or reduced run; full dataset training uses 224/288."
+    }
+  ],
+  "all_ok": true
+}

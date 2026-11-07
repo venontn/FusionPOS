@@ -1,4 +1,30 @@
+# Node
+node_modules/
+dist/
+out/
+
+# Electron
+release/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Env
+.env
+
+# Python
+.venv/
 __pycache__/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/__pycache__/
 *.py[cod]
 .venv/
 venv/
@@ -9,3 +35,19 @@ node_modules/
 desktop/out/
 desktop/dist/
 .DS_Store
+
+# SmartInvigilation local downloads / weights
+SmartInvigilation_src/.drive_token_B226715A.json
+**/client_secret*.json
+yolov8n.pt
+SmartInvigilation_src/archive*/
+SmartInvigilation_src/ExamCheatingDataset/
+SmartInvigilation_src/examdatasetnew/
+SmartInvigilation_src/notebook_dump.txt
+SmartInvigilation_src/_build_B226715A.py
+SmartInvigilation_src/_export_py.py
+*.pt
+!**/B226715A_best.pt
+
+# Allow Group Project checkpoints
+!GroupProject/models/*.pt
