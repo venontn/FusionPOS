@@ -1,0 +1,26 @@
+Google Drive — make YOUR submission folder single-contributor
+=============================================================
+
+The classroom dataset folder is shared:
+https://drive.google.com/drive/folders/1tcj53raozUaS2jx3-BpbKT5ITUB1G1F5
+
+That folder is owned/shared by multiple people. You cannot become its only
+contributor without the current owners transferring ownership.
+
+Do this instead (recommended for submission):
+
+1. Sign in as venontnyadombo@gmail.com (correct spelling: gmail.com).
+2. Drive → New → New folder → name it:
+   "Group Project Smart Invigilation — Submission"
+3. Upload from your PC:
+   - GroupProject/docs/Group_Project_Technical_Report.pdf
+   - GroupProject/models/best.pt
+   - GroupProject/models/the_best.pt
+   - GroupProject/notebooks/*.ipynb
+   - GroupProject/README.md
+4. Right-click the NEW folder → Share → General access → Restricted.
+5. Remove any other editors. Add lecturer as Viewer only if required.
+6. Keep the classroom folder as a read-only data citation only.
+
+Optional: Drive → Shared with me → SmartInvigilation → Add shortcut to My Drive
+(for Colab training paths).
