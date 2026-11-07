@@ -11,6 +11,16 @@ CNN-based cheating-behaviour detection for exam halls: YOLO person crops → Eff
 - Kaggle (videos): https://www.kaggle.com/datasets/fairouzfarouq/student-cheating-behavior-dataset
 - Kaggle (images): https://www.kaggle.com/datasets/ardutraagiginting/exam-cheating-dataset
 
+### Shared Drive — multiple owners
+
+| # | Owner / collaborator |
+|---|----------------------|
+| 1 | sehmaluva |
+| 2 | kutadzaushenigel24@gmail.com |
+| 3 | venontnyadombo@gmail.com (Venon Takunda Nyadombo) |
+
+This classroom folder is multi-owner. Keep submission artefacts in a personal Restricted Drive folder; see `docs/Drive_Ownership_Instructions.txt`.
+
 ## Contents
 
 | Path | Description |

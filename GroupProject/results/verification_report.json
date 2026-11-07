@@ -6,6 +6,11 @@
     "https://drive.google.com/drive/folders/1tcj53raozUaS2jx3-BpbKT5ITUB1G1F5",
     "https://www.kaggle.com/datasets/ardutraagiginting/exam-cheating-dataset"
   ],
+  "drive_folder_owners": [
+    "sehmaluva",
+    "kutadzaushenigel24@gmail.com",
+    "venontnyadombo@gmail.com"
+  ],
   "checkpoints": [
     {
       "file": "best.pt",

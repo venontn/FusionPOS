@@ -1,26 +1,30 @@
-Google Drive — make YOUR submission folder single-contributor
-=============================================================
+Google Drive — SmartInvigilation folder owners & submission control
+===================================================================
 
-The classroom dataset folder is shared:
+Classroom / shared dataset folder:
 https://drive.google.com/drive/folders/1tcj53raozUaS2jx3-BpbKT5ITUB1G1F5
 
-That folder is owned/shared by multiple people. You cannot become its only
-contributor without the current owners transferring ownership.
+Multiple owners / collaborators on that shared folder (as listed on Drive):
+  1. sehmaluva
+  2. kutadzaushenigel24@gmail.com
+  3. venontnyadombo@gmail.com   (Venon Takunda Nyadombo — Group Project member)
 
-Do this instead (recommended for submission):
+Because several people own/share that folder, it is a multi-owner classroom resource.
+You cannot make it single-owner without the other owners transferring ownership.
 
-1. Sign in as venontnyadombo@gmail.com (correct spelling: gmail.com).
-2. Drive → New → New folder → name it:
+For YOUR graded submission copies (recommended):
+1. Sign in as venontnyadombo@gmail.com
+2. Drive → New → New folder →
    "Group Project Smart Invigilation — Submission"
-3. Upload from your PC:
-   - GroupProject/docs/Group_Project_Technical_Report.pdf
-   - GroupProject/models/best.pt
-   - GroupProject/models/the_best.pt
-   - GroupProject/notebooks/*.ipynb
-   - GroupProject/README.md
-4. Right-click the NEW folder → Share → General access → Restricted.
-5. Remove any other editors. Add lecturer as Viewer only if required.
-6. Keep the classroom folder as a read-only data citation only.
+3. Upload:
+   - docs/Group_Project_Technical_Report.pdf
+   - models/best.pt
+   - models/the_best.pt
+   - notebooks/*.ipynb
+   - README.md
+4. Share → General access → Restricted
+5. Keep lecturer as Viewer only if required; remove extra editors
+6. Cite the shared multi-owner dataset folder as a data source only
 
-Optional: Drive → Shared with me → SmartInvigilation → Add shortcut to My Drive
-(for Colab training paths).
+Optional for Colab:
+Drive → Shared with me → SmartInvigilation → Add shortcut to My Drive

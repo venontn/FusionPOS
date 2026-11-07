@@ -65,6 +65,7 @@ def main():
         ["Primary notebook", "notebooks/Group_Project_Colab_Fixed.ipynb"],
         ["Model artefacts", "models/best.pt , models/the_best.pt"],
         ["Shared data (Drive)", "https://drive.google.com/drive/folders/1tcj53raozUaS2jx3-BpbKT5ITUB1G1F5"],
+        ["Drive owners (multi)", "sehmaluva; kutadzaushenigel24@gmail.com; venontnyadombo@gmail.com"],
         ["Kaggle video dataset", "https://www.kaggle.com/datasets/fairouzfarouq/student-cheating-behavior-dataset"],
         ["Kaggle image dataset", "https://www.kaggle.com/datasets/ardutraagiginting/exam-cheating-dataset"],
         ["Version control", "GitHub repository under account venontn"],
@@ -147,7 +148,7 @@ def main():
     story.append(Paragraph("3. Data Collection, Sources &amp; Preprocessing", S["h1"]))
     story.append(Paragraph("Datasets used", S["h2"]))
     story.append(bullets([
-        "<b>Shared Drive package (SmartInvigilation):</b> https://drive.google.com/drive/folders/1tcj53raozUaS2jx3-BpbKT5ITUB1G1F5 — includes ExamCheatingDataset image splits and examdatasetnew behavioural folders (e.g. normal, frontwatching, sidewatching, suspiciouswatching).",
+        "<b>Shared Drive package (SmartInvigilation):</b> https://drive.google.com/drive/folders/1tcj53raozUaS2jx3-BpbKT5ITUB1G1F5 — includes ExamCheatingDataset image splits and examdatasetnew behavioural folders (e.g. normal, frontwatching, sidewatching, suspiciouswatching). <b>Multiple owners:</b> sehmaluva; kutadzaushenigel24@gmail.com; venontnyadombo@gmail.com.",
         "<b>Hashemite student cheating behaviour (Kaggle videos):</b> https://www.kaggle.com/datasets/fairouzfarouq/student-cheating-behavior-dataset — optional video source; frames sampled for training/evaluation.",
         "<b>Exam cheating images (Kaggle):</b> https://www.kaggle.com/datasets/ardutraagiginting/exam-cheating-dataset — classes such as looking friend, giving code, giving object, normal act, cheating.",
     ], S["body"]))
@@ -247,11 +248,12 @@ def main():
     story.append(Paragraph(
         "<b>Google Drive note:</b> The shared folder "
         "https://drive.google.com/drive/folders/1tcj53raozUaS2jx3-BpbKT5ITUB1G1F5 "
-        "is a multi-owner/shared classroom resource (not solely owned by a single student). "
-        "To satisfy “only contributor” control, create a personal Drive folder owned by "
-        "<b>venontnyadombo@gmail.com</b>, copy project deliverables (notebook, best.pt, this report) into it, "
-        "and set sharing to Restricted / only your account (or lecturer view-only). "
-        "Classroom source datasets may remain linked as read-only citations.", S["body"]))
+        "lists <b>multiple owners</b>: <b>sehmaluva</b>, <b>kutadzaushenigel24@gmail.com</b>, and "
+        "<b>venontnyadombo@gmail.com</b>. It is a classroom resource, not a single-owner submission folder. "
+        "For graded deliverables, create a personal Drive folder owned by "
+        "<b>venontnyadombo@gmail.com</b>, copy notebook / best.pt / this report into it, "
+        "and set sharing to Restricted (lecturer view-only if required). "
+        "Cite the multi-owner dataset folder as a data source only.", S["body"]))
 
     # 8
     story.append(Paragraph("8. Demonstration Plan (15 minutes)", S["h1"]))
